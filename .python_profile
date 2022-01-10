@@ -1,0 +1,15 @@
+
+# 
+# Pyenv
+#
+pyenv 2>/dev/null
+pyenv_exists=$?
+if [ $pyenv_exists -ne 0 ]; then
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+fi
+export VIRTUALENVWRAPPER_PYTHON=$PYENV_ROOT/shims/python
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+
